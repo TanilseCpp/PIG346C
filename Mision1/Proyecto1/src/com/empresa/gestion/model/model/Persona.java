@@ -1,4 +1,4 @@
-package com.empresa.gestion.model;
+package com.empresa.gestion.model.model;
 
 public class Persona {
     //🔐 Encapsulación
