@@ -14,11 +14,18 @@ public class Main {
         System.out.println("salario: "+empleado1.calcularSalarioMensual());
         System.out.println("Salario anual: $"+nomina.calcularSalarioAnual(empleado1));
         System.out.println("Puede trabajar? "+empleado1.puedeTrabajar());
+        System.out.println("Genero: " +empleado1.obtenerTipoEmpleado());
         System.out.println("=== GERENTE ===");
         gerente1.mostrarInfoBasica();
         System.out.println("salario: "+gerente1.calcularSalarioMensual());
         System.out.println("Salario anual: $"+nomina.calcularSalarioAnual(gerente1));
         System.out.println("Puede trabajar? "+gerente1.puedeTrabajar());
+        System.out.println("Genero: " +gerente1.obtenerTipoEmpleado());
 
+        double[] salarios= {2000, 1000, 5000};
+        System.out.println("Calcular Total Nomina " +nomina.calcularTotalNomina(salarios));
+
+        int meses = 3;
+        nomina.simularPagos(meses);
     } 
 }

@@ -5,7 +5,7 @@ public class Empleado extends Persona {
     private int horasTrabajadas;
 
     public Empleado(String nombre, int edad, boolean activo, char genero, double salario, int horasTrabajadas){
-        super(nombre,edad, activo, genero);
+        super(nombre, edad, activo, genero);
         this.salario = salario;
         this.horasTrabajadas = horasTrabajadas;
     }
@@ -45,5 +45,30 @@ public class Empleado extends Persona {
 
     public boolean puedeTrabajar() {
         return getEdad() >=18 && activo == true;
+    }
+
+    public String clasificarEmpleado(){
+        //Usamos if cuando el programa debe decidir según una condición
+        if(edad < 18){
+            return "Menor de edad (No puede trabjar)";
+        }
+        else if(edad<=60){
+                 return "Empleado activo";
+                }
+        else{
+            return "Empleado en edad de retiro";
+        }
+        
+    }
+    public String obtenerTipoEmpleado(){
+        //switch se usa cuando hay opciones definidas 
+        switch (genero) {
+            case 'M':
+                return "Masculino";
+            case 'F':
+                return "Femenino";
+            default:
+                return "No especificado";
+        }
     }
 }

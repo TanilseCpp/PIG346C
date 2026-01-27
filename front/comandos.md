@@ -8,3 +8,4 @@
  ng new mi-primer-angular --satandalone --routing --style=css : creacion de proyecto en angular
  ng serve -o : correr el servidor y abre el navegador
  ng generate service services/user.service/user.service : para crear un servicio
+ ng generate component view/user/user.component : generar vista de usuario

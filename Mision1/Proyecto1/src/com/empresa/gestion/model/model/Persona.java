@@ -3,9 +3,9 @@ package com.empresa.gestion.model.model;
 public class Persona {
     //🔐 Encapsulación
     private String nombre;
-    private int edad;
+    protected int edad;
     protected boolean activo; // True o False
-    private char genero; // M o F
+    protected char genero; // M o F
     //🧱 Constructor
     public Persona(String nombre, int edad, boolean activo, char genero) {
         this.nombre = nombre;
