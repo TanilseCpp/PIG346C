@@ -1,4 +1,4 @@
-package com.empresa.gestion.model.model;
+package com.empresa.gestion.model;
 
 public class Empleado extends Persona {
     private double salario;
@@ -36,6 +36,13 @@ public class Empleado extends Persona {
         double valorHora = salario / 160;
         double salarioFinal = valorHora * horasTrabajadas;
         return salarioFinal;
+    }
+
+    public String resumen() {
+        return "ID: " +id +
+                "Nombre: " +nombre +
+                "Edad: " +edad;
+
     }
 
     //Agregamos reglas de negocio

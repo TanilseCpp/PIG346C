@@ -1,6 +1,6 @@
-package com.empresa.gestion.model.app;
-import com.empresa.gestion.model.model.*;
-import com.empresa.gestion.model.service.*;
+package com.empresa.gestion.app;
+import com.empresa.gestion.model.*;
+import com.empresa.gestion.service.*;
 
 public class Main {
     public static void main(String[] args) { 

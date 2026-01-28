@@ -1,4 +1,4 @@
-package com.empresa.gestion.model.model;
+package com.empresa.gestion.model;
 
 public class Gerente extends Empleado{
     private String departamento;

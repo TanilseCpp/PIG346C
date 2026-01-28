@@ -1,6 +1,6 @@
-package com.empresa.gestion.model.service;
+package com.empresa.gestion.service;
 
-import com.empresa.gestion.model.model.Empleado;
+import com.empresa.gestion.model.Empleado;
 
 public class NominaService {
     public double calcularSalarioAnual(Empleado empleado) {
