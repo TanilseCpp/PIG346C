@@ -40,9 +40,12 @@ public class Empleado extends Persona {
 
     public String resumen() {
         return "ID: " +id +
-                "Nombre: " +nombre +
-                "Edad: " +edad;
-
+                "\t Nombre: " +nombre +
+                "\t Edad: " +edad +
+                "\t Activo: " + activo +
+                "\t Genero: " + genero +
+                "\t Salario: " + salario +
+                "\t Horas trabajadas: " + horasTrabajadas;
     }
 
     //Agregamos reglas de negocio
