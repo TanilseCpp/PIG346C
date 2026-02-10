@@ -1,5 +1,6 @@
 package com.talentotech.api.model;
-import jakarta.annotation.Generated;
+import java.lang.annotation.Inherited;
+import javax.annotation.processing.Generated;
 import jakarta.persistence.*; //Permite estandariazacion con el motor de base de datos
 
 @Entity
@@ -12,4 +13,25 @@ public class User {
     private String username;
     @Column(nullable = false)
     private String email;
+    public User(){};
+    
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
+

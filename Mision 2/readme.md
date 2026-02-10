@@ -8,6 +8,7 @@
 ## 🏃🏻‍➡️  Paso 2
 **Crear proyecto Spring Boot**
 Ctrl + shift + p
+
 Spring Initializr: Create a Maven Project
 3.5.10
 java
