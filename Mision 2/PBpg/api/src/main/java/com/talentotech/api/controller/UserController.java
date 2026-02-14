@@ -15,13 +15,13 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
+    //Crear
     @PostMapping
     public User create(@RequestBody User user) {
-
         return userRepository.save(user);
-
     }
 
+    //Listar
     @GetMapping
     public List<User> findAll() {
         return userRepository.findAll();
@@ -29,11 +29,33 @@ public class UserController {
 
     //Consultar por id
     @GetMapping("/{id}")
-
     public User findByID(@PathVariable Long id){
         return userRepository.findById(id)
         .orElseThrow(()-> new ResponseStatusException(
             HttpStatus.NOT_FOUND,
             "Usuario no encontrado"));
+    }
+
+    //Modificar por id
+    @PutMapping("/{id}")
+    public User update(@PathVariable Long id, @RequestBody User userDetails) {
+        User user = userRepository.findById(id)
+        .orElseThrow(()-> new RuntimeException("Usuario no encontrado"));
+
+        if(userDetails.getUsername()!=null && !userDetails.getUsername().trim().isEmpty()){
+            user.setUsername(userDetails.getUsername());
+        }
+
+        if(userDetails.getEmail()!=null && !userDetails.getEmail().trim().isEmpty()){
+            user.setEmail(userDetails.getEmail());
+        }
+
+        if(userDetails.getPassword()!=null && !userDetails.getPassword().trim().isEmpty()){
+            user.setPassword(userDetails.getPassword());
+        }
+
+        user.setRole(userDetails.getRole());
+  
+        return userRepository.save(user);
     }
 }
