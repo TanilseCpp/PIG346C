@@ -1,4 +1,5 @@
 package com.talentotech.api.controller;
+import com.talentotech.api.dto.LoginRequest;
 import com.talentotech.api.model.User;
 import com.talentotech.api.service.UserService;
 
@@ -7,6 +8,9 @@ import java.util.List;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController //Esto determina que la clase responde peticiones http y devuelve JSON
 @RequestMapping("/api/users") //Define la ruta base del controlador
@@ -44,4 +48,12 @@ public class UserController {
     public User update(@PathVariable Long id, @RequestBody User userDetails) {
         return userService.update(id, userDetails);
     }
+
+    //Verificar login
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        String response = userService.login(request);        
+        return ResponseEntity.ok(response);
+    }
+    
 }

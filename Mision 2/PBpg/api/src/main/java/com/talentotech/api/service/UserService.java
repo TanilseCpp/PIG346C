@@ -1,4 +1,5 @@
 package com.talentotech.api.service;
+import com.talentotech.api.dto.LoginRequest;
 import com.talentotech.api.model.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -45,10 +46,27 @@ public class UserService {
         if(userDetails.getPassword()!=null && !userDetails.getPassword().trim().isEmpty()){
             user.setPassword(passwordEncoder.encode(userDetails.getPassword()));
         }
-
-        user.setRole(userDetails.getRole());
+        
+        if (userDetails.getRole()!=null){
+            user.setRole(userDetails.getRole());
+        }
   
         return userRepository.save(user);
+    }
+
+    public String login(LoginRequest request){
+        Optional<User> optionalUser = userRepository.findByUsername(request.getUsername());
+        if(optionalUser.isEmpty()){
+            throw new RuntimeException("Usuario no encontrado");
+        }
+
+        User user = optionalUser.get();
+
+        if(!passwordEncoder.matches(request.getPassword(), user.getPassword())){
+            throw new RuntimeException("Contraseña incorrecta");
+        }
+
+        return "Login exitoso";
     }
 
 }
