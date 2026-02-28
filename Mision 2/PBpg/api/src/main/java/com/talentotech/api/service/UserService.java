@@ -34,7 +34,7 @@ public class UserService {
 
     public User update(Long id, User userDetails){
         User user = userRepository.findById(id)
-        .orElseThrow(()-> new RuntimeException("Usuario no encontrado"));
+        .orElseThrow(()-> new ResourceNotFoundException("Usuario no encontrado"));
 
         if(userDetails.getUsername()!=null && !userDetails.getUsername().trim().isEmpty()){
             user.setUsername(userDetails.getUsername());
